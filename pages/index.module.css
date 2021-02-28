@@ -1,0 +1,16 @@
+.card {
+    padding: 10px;
+    margin: 2em;
+    max-width: 350px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0 0px 30px rgba(0,0,0,0.2);
+    transition: 0.5s;
+}
+.card:hover {
+    cursor: pointer;
+    background: linear-gradient(to left, #F3E49430, #00D7FF30 180%);
+    box-shadow: none;
+    transform: translate3d(0, 3px, 0);
+    transition: 0.5s;
+}

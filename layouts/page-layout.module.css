@@ -1,0 +1,19 @@
+.headerBg {
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(to left, #F3E494, #00D7FF 180%);
+    transform: skewY(-5deg);
+    transform-origin: top left;
+}
+
+.headerTitle {
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    color: #555;
+}
+
+.children {
+    position: relative;
+    min-height: 80vh;
+}

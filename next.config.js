@@ -1,19 +1,23 @@
-const withSass = require("@zeit/next-sass");
-const withLess = require("@zeit/next-less");
-const withCss = require("@zeit/next-css");
+const withSass = require("@zeit/next-sass")
+const withLess = require("@zeit/next-less")
+const withCss = require("@zeit/next-css")
 
-module.exports = () => withCss({
+module.exports = () =>
+  withCss({
     trailingSlash: true,
     cssModules: true,
     cssLoaderOptions: {
-        importLoaders: 1,
-        localIdentName: "[local]___[hash:base64:5]",
+      importLoaders: 1,
+      localIdentName: "[local]___[hash:base64:5]",
     },
     ...withLess(
-        withSass({
-            lessLoaderOptions: {
-                javascriptEnabled: true,
-            },
-        })
+      withSass({
+        lessLoaderOptions: {
+          javascriptEnabled: true,
+        },
+      })
     ),
-})
+    images: {
+      domains: ["images.microcms-assets.io"],
+    },
+  })
