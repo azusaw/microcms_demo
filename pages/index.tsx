@@ -85,9 +85,10 @@ export default function Index({ posts }) {
                 />
                 <Meta
                   title={post.tags.map((tag) => (
-                    <Tag>{tag}</Tag>
+                    <Tag key={tag} style={{ marginTop: "10px" }}>
+                      {tag}
+                    </Tag>
                   ))}
-                  style={{ marginTop: "10px" }}
                 />
               </Card>
             </Link>
