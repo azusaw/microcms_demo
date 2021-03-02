@@ -1,4 +1,5 @@
 import React from "react"
+import Link from "next/link"
 import Head from "next/head"
 import Image from "next/image"
 import { Button, Card, Col, Row, Tag } from "antd"
@@ -70,24 +71,26 @@ export default function Index({ posts }) {
             md={{ span: 8 }}
             xl={{ span: 6 }}
           >
-            <Card
-              title={post.name}
-              extra={typeGenerator(post.type[0])}
-              className={style.card}
-              hoverable
-            >
-              <Image
-                src={post.icon.url}
-                width={250}
-                height={(post.icon.height / post.icon.width) * 250}
-              />
-              <Meta
-                title={post.tags.map((tag) => (
-                  <Tag>{tag}</Tag>
-                ))}
-                style={{ marginTop: "10px" }}
-              />
-            </Card>
+            <Link href={"/posts/" + `${post.id}` + "/"}>
+              <Card
+                title={post.name}
+                extra={typeGenerator(post.type[0])}
+                className={style.card}
+                hoverable
+              >
+                <Image
+                  src={post.icon.url}
+                  width={250}
+                  height={(post.icon.height / post.icon.width) * 250}
+                />
+                <Meta
+                  title={post.tags.map((tag) => (
+                    <Tag>{tag}</Tag>
+                  ))}
+                  style={{ marginTop: "10px" }}
+                />
+              </Card>
+            </Link>
           </Col>
         ))}
       </Row>
