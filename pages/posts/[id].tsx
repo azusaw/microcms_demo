@@ -13,22 +13,24 @@ export const getStaticPaths = async () => {
     key
   )
     .then((res) => res.json())
-    .catch(() => null)
-  const paths = data.contents.map((content) => `/posts/${content.id}`)
-  return { paths, fallback: false }
+    .catch((err) => console.log(err))
+  const paths = data?.contents?.map((content) => `/posts/${content.id}`) ?? []
+  return {
+    paths,
+    fallback: false,
+  }
 }
 
 export const getStaticProps = async (context) => {
-  const id = context.params.id
   const key = {
     headers: { "X-API-KEY": process.env.X_API_KEY },
   }
   const data = await fetch(
-    "https://microcms-demo.microcms.io/api/v1/language-posts/" + id,
+    `https://microcms-demo.microcms.io/api/v1/language-posts/${context.params.id}`,
     key
   )
     .then((res) => res.json())
-    .catch(() => null)
+    .catch((err) => console.log(err))
   return {
     props: {
       post: data,
@@ -45,7 +47,7 @@ export default function Posts({ post }) {
           <div className={style.header}>
             <h2>{post.name}</h2>
             <h3>{post.type}</h3>
-            {post.tags.map((tag, idx) => (
+            {post.tags?.map((tag, idx) => (
               <Tag key={idx}>{tag}</Tag>
             ))}
           </div>

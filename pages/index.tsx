@@ -21,7 +21,7 @@ export const getStaticProps = async () => {
     key
   )
     .then((res) => res.json())
-    .catch(() => console.log(key))
+    .catch((err) => console.log(err))
   return {
     props: {
       posts: data.contents,
