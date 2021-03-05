@@ -1,19 +1,37 @@
+:root {
+    --add-height: 60px;
+}
 .headerBg {
     width: 100%;
     height: 120px;
     background: linear-gradient(to left, #F3E494, #00D7FF 180%);
     transform: skewY(-5deg);
     transform-origin: top left;
+    transition: 0.3s;
 }
-
-.headerTitle {
+.headerBg:hover {
+    height: calc(120px + var(--add-height));
+    cursor: pointer;
+    color: #FFF;
+    text-shadow:1px 0 5px #888;
+    transition: 0.3s;
+}
+.headerText {
     position: absolute;
-    top: 5px;
+    top: -40px;
     left: 20px;
-    color: #555;
+    font-size: 26px;
+    font-weight: 500;
+    color: #00433f;
+    text-shadow:1px 0 5px #cdffff;
+    transition: 0.3s;
 }
-
+.headerBg:hover + .headerText {
+    top: calc(-40px + var(--add-height));
+    color: #fff;
+    transition: 0.3s;
+}
 .children {
     position: relative;
-    min-height: 80vh;
+    min-height: calc(80vh - 150px);
 }
