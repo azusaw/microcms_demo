@@ -1,4 +1,5 @@
 import React from "react"
+import { motion } from "framer-motion"
 import style from "./page-layout.module.css"
 
 export default function PageLayout({ children }) {
@@ -11,6 +12,12 @@ export default function PageLayout({ children }) {
         {"Languages"}
       </h1>
       <div className={style.children}>{children}</div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.3 }}
+      >
+      </motion.div>
       <div className={style.footer} />
     </>
   )
