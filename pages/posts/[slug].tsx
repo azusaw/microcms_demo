@@ -3,19 +3,20 @@ import Link from "next/link"
 import { Divider, Tag } from "antd"
 import { TagOutlined } from "@ant-design/icons"
 import PageLayout from "../../layouts/PageLayout"
-import style from "./[id].module.css"
+import style from "./[slug].module.css"
 
 export const getStaticPaths = async () => {
   const key = {
     headers: { "X-API-KEY": process.env.X_API_KEY },
   }
-  const data = await fetch(
+  const allPosts = await fetch(
     "https://microcms-demo.microcms.io/api/v1/language-posts",
     key
   )
     .then((res) => res.json())
     .catch((err) => console.log(err))
-  const paths = data?.contents?.map((content) => `/posts/${content.id}`) ?? []
+  const paths =
+    allPosts?.contents?.map((content) => `/posts/${content.slug}`) ?? []
   return {
     paths,
     fallback: false,
@@ -26,15 +27,18 @@ export const getStaticProps = async (context) => {
   const key = {
     headers: { "X-API-KEY": process.env.X_API_KEY },
   }
-  const data = await fetch(
-    `https://microcms-demo.microcms.io/api/v1/language-posts/${context.params.id}`,
+  const allPosts = await fetch(
+    "https://microcms-demo.microcms.io/api/v1/language-posts",
     key
   )
     .then((res) => res.json())
     .catch((err) => console.log(err))
+  const post = allPosts?.contents?.find(
+    (content) => content.slug === context.params.slug
+  )
   return {
     props: {
-      post: data,
+      post: post,
     },
   }
 }
@@ -55,7 +59,7 @@ export default function Posts({ post }) {
               <Tag key={idx}>{tag}</Tag>
             ))}
           </div>
-          <img alt={post.name} src={post.icon.url} />
+          <img alt={post.name} src={post.icon?.url} />
           <Divider />
           <div
             dangerouslySetInnerHTML={{

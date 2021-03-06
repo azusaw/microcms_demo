@@ -61,7 +61,7 @@ export default function Index({ posts }) {
   return (
     <PageLayout>
       <Head>
-        <title>{"Various Programming Languages"}</title>
+        <title>{"Various Programming Technologies"}</title>
       </Head>
       <Row>
         {posts.map((post, idx) => (
@@ -72,7 +72,7 @@ export default function Index({ posts }) {
             md={{ span: 8 }}
             xl={{ span: 6 }}
           >
-            <Link href={"/posts/" + `${post.id}` + "/"}>
+            <Link href={"/posts/" + `${post.slug}` + "/"}>
               <Card
                 title={post.name}
                 extra={typeGenerator(post.type[0])}
