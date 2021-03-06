@@ -52,7 +52,7 @@ export default function Posts({ post }) {
           <div className={style.header}>
             <h2>{post.name}</h2>
             <h3>
-              <TagOutlined />
+              <TagOutlined style={{ marginRight: "5px" }} />
               {post.type}
             </h3>
             {post.tags?.map((tag, idx) => (
