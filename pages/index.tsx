@@ -1,8 +1,7 @@
 import React from "react"
 import Link from "next/link"
 import Head from "next/head"
-import Image from "next/image"
-import { Button, Card, Col, Row, Tag } from "antd"
+import { Card, Col, Row, Tag } from "antd"
 import PageLayout from "../layouts/PageLayout"
 import style from "./index.module.css"
 import {
@@ -24,7 +23,9 @@ export const getStaticProps = async () => {
     .catch((err) => console.log(err))
   return {
     props: {
-      posts: data.contents,
+      posts: data.contents.sort((v1, v2) =>
+        v1.createdAt > v2.createdAt ? 1 : -1
+      ),
     },
   }
 }
@@ -78,7 +79,7 @@ export default function Index({ posts }) {
                 className={style.card}
                 hoverable
               >
-                <Image
+                <img
                   src={post.icon.url}
                   width={250}
                   height={(post.icon.height / post.icon.width) * 250}

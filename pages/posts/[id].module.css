@@ -1,7 +1,6 @@
 .container {
   margin: 0 auto;
 }
-
 .sheet {
   display: block;
   background-color: #fff;
@@ -10,16 +9,13 @@
   padding: 2rem;
   margin: 0 auto;
 }
-
 .header {
   margin: 1rem 0;
 }
-
 .date {
   font-size: 0.9rem;
   line-height: 2rem;
 }
-
 .lead {
   height: 300px;
   overflow: hidden;
@@ -27,7 +23,39 @@
   white-space: nowrap;
 }
 
-.img {
+/* FOR Micro CMS*/
+img {
   margin: 1rem auto;
-  max-width: 30rem;
+  max-width: 300px;
+}
+h4 {
+  text-decoration: underline;
+  font-weight: bolder;
+}
+blockquote {
+  padding: 1.5em;
+  margin: 2em 0;
+  color: #fff;
+  background-color: #646b69;
+  border-radius: 5px;
+}
+blockquote:after {
+  float: right;
+  content: "quoted from Wikipedia";
+  text-decoration: underline;
+}
+pre {
+  padding: 1.5em;
+  margin: 2em 0;
+  background-color: #EEE;
+  border-radius: 5px;
+  font-size: 0.8rem;
+}
+p > code {
+  font-size: 0.8rem;
+  padding: 0.3em;
+  margin: 0 0.3em;
+  color: #ff3c7b;
+  border: #CCC 1px solid;
+  border-radius: 3px;
 }

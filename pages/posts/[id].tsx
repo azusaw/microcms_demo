@@ -1,8 +1,9 @@
 import React from "react"
 import Link from "next/link"
 import { Divider, Tag } from "antd"
-import style from "./[id].module.css"
+import { TagOutlined } from "@ant-design/icons"
 import PageLayout from "../../layouts/PageLayout"
+import style from "./[id].module.css"
 
 export const getStaticPaths = async () => {
   const key = {
@@ -46,12 +47,15 @@ export default function Posts({ post }) {
           <Link href="/">{"< BACK"}</Link>
           <div className={style.header}>
             <h2>{post.name}</h2>
-            <h3>{post.type}</h3>
+            <h3>
+              <TagOutlined />
+              {post.type}
+            </h3>
             {post.tags?.map((tag, idx) => (
               <Tag key={idx}>{tag}</Tag>
             ))}
           </div>
-          <img alt={post.name} src={post.icon.url} className={style.img} />
+          <img alt={post.name} src={post.icon.url} />
           <Divider />
           <div
             dangerouslySetInnerHTML={{
@@ -59,6 +63,8 @@ export default function Posts({ post }) {
             }}
             className={style.body}
           />
+          <Divider />
+          <h3>{"MY EXPERIENCE"}</h3>
           <div
             dangerouslySetInnerHTML={{
               __html: `${post.feelings}`,
