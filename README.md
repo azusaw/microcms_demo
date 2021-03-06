@@ -36,3 +36,9 @@ $ npm run start
 # export to out directory
 $ npm run export
 ```
+
+# for local
+Create `.env.development` and set parameters of microCMS.
+```.env.development
+X_API_KEY=hogehoge
+```
