@@ -4,11 +4,7 @@ import Head from "next/head"
 import { Card, Col, Row, Tag } from "antd"
 import PageLayout from "../layouts/PageLayout"
 import style from "./index.module.css"
-import {
-  BlockOutlined,
-  CloudOutlined,
-  FieldBinaryOutlined,
-} from "@ant-design/icons"
+import { BlockOutlined } from "@ant-design/icons"
 const { Meta } = Card
 
 export const getStaticProps = async () => {
@@ -32,31 +28,24 @@ export const getStaticProps = async () => {
 
 export default function Index({ posts }) {
   const typeGenerator = (type: string) => {
+    let color = "#888"
     switch (type) {
       case "Language":
-        return (
-          <span style={{ color: "#de8500" }}>
-            <FieldBinaryOutlined />
-            {"Language"}
-          </span>
-        )
+        color = "#de4600"
         break
       case "Framework":
-        return (
-          <span style={{ color: "#1d8354" }}>
-            <BlockOutlined />
-            {"Framework"}
-          </span>
-        )
+        color = "#1d8354"
         break
       case "Service":
-        return (
-          <span style={{ color: "#1936be" }}>
-            <CloudOutlined />
-            {"Service"}
-          </span>
-        )
+        color = "#1936be"
+        break
     }
+    return (
+      <span style={{ color: color }}>
+        <BlockOutlined />
+        {type}
+      </span>
+    )
   }
   return (
     <PageLayout>
