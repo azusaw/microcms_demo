@@ -9,6 +9,7 @@ Blog demo used microCMS for content management
 - Ant Design
 - microCMS
 - Vercel
+- framer-motion
 
 # what is microCMS?
 > https://microcms.io/
