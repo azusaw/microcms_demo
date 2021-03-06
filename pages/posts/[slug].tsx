@@ -48,16 +48,19 @@ export default function Posts({ post }) {
     <PageLayout>
       <div className={style.container}>
         <div className={style.sheet}>
-          <Link href="/">{"< BACK"}</Link>
           <div className={style.header}>
-            <h2>{post.name}</h2>
+            <a href={post.url} target="blank" rel="noopener noreferrer">
+              <h2 className={style.link}>{post.name}</h2>
+            </a>
             <h3>
               <TagOutlined style={{ marginRight: "5px" }} />
               {post.type}
+              {post.tags?.map((tag, idx) => (
+                <Tag key={idx} style={{ marginLeft: "10px" }}>
+                  {tag}
+                </Tag>
+              ))}
             </h3>
-            {post.tags?.map((tag, idx) => (
-              <Tag key={idx}>{tag}</Tag>
-            ))}
           </div>
           <img alt={post.name} src={post.icon?.url} />
           <Divider />
