@@ -19,9 +19,7 @@ export const getStaticProps = async () => {
     .catch((err) => console.log(err))
   return {
     props: {
-      posts: data.contents.sort((v1, v2) =>
-        v1.createdAt > v2.createdAt ? 1 : -1
-      ),
+      posts: data.contents,
     },
   }
 }
