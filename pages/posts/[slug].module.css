@@ -1,5 +1,6 @@
 .container {
   margin: 0 auto;
+  line-height: 1.8em;
 }
 .sheet {
   display: block;
@@ -57,11 +58,12 @@ pre {
   border-radius: 5px;
   font-size: 0.8rem;
 }
-p > code {
+p > code, ul > li >code {
   font-size: 0.8rem;
-  padding: 0.3em;
+  padding: 0.2em 0.3em;
   margin: 0 0.3em;
   color: #ff3c7b;
   border: #CCC 1px solid;
   border-radius: 3px;
 }
+
